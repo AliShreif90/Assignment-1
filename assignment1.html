@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-
+<!-- First accessibility element is lang or language. This helps readers know what language is used in the form -->
 <head>
     <meta charset="utf-8">
     <title>Form Project</title>
@@ -21,7 +21,7 @@
             </div>
 
             <div class="col-md-6">
-                <label for="lastName" class="form-label">Last Name</label>
+                <label for="lastName" class="form-label">Last Name</label>                 <!-- Second accessibility element is label for which connects the text label to the form control -->
                 <input type="text" class="form-control" id="lastName" name="lastName" required>
             </div>
         </div>
@@ -29,8 +29,7 @@
         <!-- Address -->
         <div class="mb-3">
             <label for="address" class="form-label">Address</label>
-            <input type="text" class="form-control" id="address" name="address" required>
-        </div>
+            <input type="text" class="form-control" id="address" name="address" required>   <!-- "Required" attribute is a third accessibility element which tells the reader that the field is required -->
 
         <!-- City / State / Zip -->
         <div class="row g-3 mb-3">
@@ -44,7 +43,10 @@
                 <select class="form-select" id="state" name="state" required>
                     <option value="ca">California</option>
                     <option value="ny">New York</option>
-                    <option value="mi" selected>Michigan</option>
+                    <option value="mi" selected>Michigan</option> <!-- Select makes Michigan the default chosen state when the page loads, the dropdown will already show “Michigan” when the 
+                    the form first appears to the user, and if the user submits the form without changing the state, the value sent is state=mi -->
+                    <!-- This is useful for users since this saves them a step especially if they are from Michigan, makes the form easier and quicker to fill out, and it reduces errors if another 
+                    state is chosen by mistake or of the field was left blank -->
                     <option value="il">Illinois</option>
                     <option value="tx">Texas</option>
                 </select>
@@ -59,7 +61,9 @@
         <!-- Phone / Email -->
         <div class="row g-3 mb-3">
             <div class="col-md-6">
-                <label for="phone" class="form-label">Phone</label>
+                <label for="phone" class="form-label">Phone</label>  <!-- Using for on label as here help the reader or user to anounce Phone or email as the label. By clicking the text Phone, the 
+                focus is on the the phone field or by clicking the text Email, the the focus is on email. If this relationship is not there, then the label won't be associated with the input, clicking
+                the label text won’t focus on the corresponding field. Thus, this reduces usability and accessibility, especially for keyboard users -->
                 <input type="tel" class="form-control" id="phone" name="phone" required>
             </div>
 
@@ -69,7 +73,7 @@
             </div>
         </div>
 
-        <!-- Contact method -->
+        <!-- Contact method like email or tel in this case which will help the readers describe the expected output  -->
         <div class="mb-3">
             <p class="mb-1">Preferred method of contact</p>
 
@@ -81,7 +85,10 @@
 
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="contactMethod" id="contactText" value="text">
-                <label class="form-check-label" for="contactText">Text</label>
+                <label class="form-check-label" for="contactText">Text</label>  <!-- Radio methods share the same name value to form a group of methods where only a choice can be selected 
+                at a time. If the radio methods do not share the same name value, they will not be treated as a group, the reader may select both methods (email and text) at the same time, and 
+                both values would be submitted in the form as seperate fields as: contactEmail= email and contactText=text. Thus, the goal of "Preferred Method of Contact" won't be applied here
+                (The goal is to choose one of the methods)-->
             </div>
         </div>
 
@@ -91,5 +98,6 @@
     </form>
 
 </body>
+
 
 </html>
